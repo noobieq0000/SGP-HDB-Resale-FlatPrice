@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: pg_sg
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: analytics
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+      - ../dataset:/data:ro
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_sg
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:
