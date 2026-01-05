@@ -1,11 +1,11 @@
 # SGP-HDB-Resale-FlatPrice
 
-##Introduction
+# Introduction
 Diving into public housing market in Singapore. This project explores high-value estates, high demand region, and where the high demands meeting the flat type and builds a simple end to end workflow:
 
-** CSV dataset → Dockerized Postgres → SQL ingestion → Figma UI → PowerBI dashboard insights.
+**CSV dataset → Dockerized Postgres → SQL ingestion → Figma UI → PowerBI dashboard insights.**
 
-##Background 
+# Background 
 The purpose behind this project was driven to strengthen my SQL fundamentals, database skills, Figma UI design and PowerBI, while also exploring about data engineering and gaining a deeper understanding of Singare public housing resale market. 
 
 The data for this project is from Singapore Government public portal [HDB Resale Price](https://data.gov.sg/datasets?topics=housing&resultId=189)
