@@ -36,24 +36,24 @@ Running a local PostgreSQL database using Docker, together with pgAdmin so that 
 
 From the project roots, run:
 
-![alt text](docker.png)
+![alt text](images/docker.png)
 *Fig 1. Docker interface*
 
-![alt text](docker1-1.png)
+![alt text](images/docker1-1.png)
 *Fig 1.1 Docker CLI status*
 
-![alt text](docker10.png)
+![alt text](images/docker10.png)
 *Fig 1.2 Docker Version*
 
 **2. Postgres Database**
 
 Connecting docker container to pgAdmin on local desktop. 
-![alt text](pgdb1.png)
+![alt text](images/pgdb1.png)
 
 *Fig 2. pgAdmin Connection Interface* 
 
 Checking the version that Postgres DB is connected to the container properly. 
-![alt text](postgres15.png)
+![alt text](images/postgres15.png)
 
 *Fig 2.1. Database Version* 
 
@@ -242,7 +242,7 @@ After cleaning the data in power query and creating several dax measures, here i
 
 ### 1. HDB Resale Median Price Trend (1990-2025) - with 12 Month Moving Average
 
-![alt text](linechart.png)
+![alt text](images/linechart.png)
 
 *Fig 3. Chart for HDB Median Price*
 
@@ -256,7 +256,7 @@ The median resale prices showing clear long-term uptrend from 1990 to 2025:
 The 12-month moving average smooths short-term fluctuations highlighting the overall upwards trajectory. 
 
 ### 2. Average HDB Resale Price by Town - Highest to Lowest
-![alt text](barchart.png)
+![alt text](images/barchart.png)
 
 *Fig 3.1 Chart for HDB Price by Town*
 
@@ -267,7 +267,7 @@ The 12-month moving average smooths short-term fluctuations highlighting the ove
 Overall, this is highlighting clear location-driven pricing differences in the resale market. 
 
 ### 3. Flat Model Transaction - Share of Total Resale Transactions
-![alt text](treemap.png)
+![alt text](images/treemap.png)
 
 *Fig 3.2 Share of Flat Model*
 
@@ -284,7 +284,7 @@ The remaining transaction spreading across smaller categories such as:
 Overall, the market is dominated by a few of common flat models with some of less frequent types. 
 
 # Conclusion 
-![alt text](pb59.png)
+![alt text](images/pb59.png)
 
 *Fig 4 HDB Resale Price Dashboard*
 
