@@ -34,27 +34,203 @@ Running a local PostgreSQL database using Docker, together with pgAdmin so that 
 
 **1. Docker Configuration**
 
-From the project roots 
-
-(C:\Users\bings\sg-resaleflatprice\SGP-HDB-Resale-FlatPrice), run:
+From the project roots, run:
 
 ![alt text](docker.png)
-*Fig 1. Docker interface*
+                        *Fig 1. Docker interface*
 
 ![alt text](docker1-1.png)
-*Fig 1.1 Docker CLI status*
+                        *Fig 1.1 Docker CLI status*
 
 ![alt text](docker10.png)
-*Fig 1.2 Docker Version*
+                        *Fig 1.2 Docker Version*
 
 **2. Postgres Database**
+
 Connecting docker container to pgAdmin on local desktop. 
 ![alt text](pgdb1.png)
-*Fig 2. pgAdmin Connection Interface* 
+                *Fig 2. pgAdmin Connection Interface* 
 
 Checking the version that Postgres DB is connected to the container properly. 
 ![alt text](postgres15.png)
-*Fig 2.1. Database Version* 
+                    *Fig 2.1. Database Version* 
 
 ## 2. SQL Data Ingestion
+After PostgreSQL is runnning in Docker, I load the datasets from my directory into Postgres using SQL. 
 
+**1. Create Table**
+
+```sql
+create table hdb_resale_prices(
+	month text,
+	town text,
+	flat_type text,
+	block text,
+	street_name text,
+	storey_range text,
+	floor_area_sqm numeric,
+	flat_model text,
+	lease_commence_date int,
+	remaining_lease text,
+	resale_price numeric
+); 
+```
+
+**2. Ingest dataset**
+
+```sql
+copy public.hdb_resale_prices
+(
+	month, town, flat_type, block, street_name,
+	storey_range, floor_area_sqm, flat_model,
+	lease_commence_date, resale_price
+)
+from 
+	'/data/resale_1990_1999.csv'   -- same method for 2000-2025 dataset
+with 
+	(format csv, header true);
+```
+
+**3. Add ID for the table**
+
+```sql
+alter table public.hdb_resale_prices
+add column hdb_id BIGINT generated always as identity;
+
+alter table public.hdb_resale_prices
+add constraint hdb_resale_prices_pkey primary key (hdb_id);
+```
+
+**4. Check for duplication**
+
+```sql
+select
+	month,
+	town,
+	flat_type,
+	block,
+	street_name,
+	storey_range,
+	floor_area_sqm,
+	flat_model,
+	lease_commence_date,
+	remaining_lease,
+	resale_price,
+	count(*) as duplicate_count
+from
+	public.hdb_resale_prices
+group by
+	month,
+	town,
+	flat_type,
+	block,
+	street_name,
+	storey_range,
+	floor_area_sqm,
+	flat_model,
+	lease_commence_date,
+	remaining_lease,
+	resale_price
+having 
+	count(*) > 1
+order by
+	duplicate_count DESC
+limit 50;
+```
+
+**5. Delete Duplication**
+
+```sql
+with ranked as(
+	select
+	hdb_id,
+	row_number() over (
+		partition by
+		month, town, flat_type, block, street_name,
+		storey_range, floor_area_sqm, lease_commence_date,
+		remaining_lease, resale_price
+	) as row_number
+	from public.hdb_resale_prices
+)
+delete from 
+	public.hdb_resale_prices 
+where 
+	hdb_id in (
+	select 
+		hdb_id
+	from 
+		ranked
+	where
+		row_number > 1
+	);
+```
+
+**6. Check for existing duplicate group**
+
+```sql
+select
+	count(*) as duplicate_groups 
+from (
+	select
+		month,
+		town,
+		flat_type,
+		block,
+		street_name,
+		storey_range,
+		floor_area_sqm,
+		flat_model,
+		lease_commence_date,
+		remaining_lease,
+		resale_price
+	from
+	 public.hdb_resale_prices
+	group by
+		month,
+		town,
+		flat_type,
+		block,
+		street_name,
+		storey_range,
+		floor_area_sqm,
+		flat_model,
+		lease_commence_date,
+		remaining_lease,
+		resale_price
+	having
+		count(*) > 1
+);
+```
+
+**7. Create index to prevent duplication**
+
+```sql
+create unique index if not exists uq_hdb_no_duplicates
+on public.hdb_resale_prices(
+	month,
+	town,
+	flat_type,
+	block,
+	street_name,
+	storey_range,
+	floor_area_sqm,
+	flat_model,
+	lease_commence_date,
+	remaining_lease,
+	resale_price
+);
+```
+
+**8. Confirming index**
+
+```sql
+select 
+	indexname,
+	indexdef
+from 
+	pg_indexes 
+where 
+	schemaname = 'public'
+	and tablename = 'hdb_resale_prices'
+	and indexname = 'uq_hdb_no_duplicates';
+```
