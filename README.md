@@ -60,6 +60,7 @@ Checking the version that Postgres DB is connected to the container properly.
 
 <p align="center"><i>Fig 2.1. Database Version</em></p>
 
+
 ### 2. SQL Data Ingestion
 After PostgreSQL is runnning in Docker, I load the datasets from my directory into Postgres using SQL. 
 
