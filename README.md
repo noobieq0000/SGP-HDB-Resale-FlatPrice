@@ -1,14 +1,14 @@
 # Singapore HDB Resale Flat Price
 
 # Introduction
-Diving into public housing market in Singapore. This project explores high-value estates, high demand region, and where the high demands meeting the flat type and builds a simple end to end workflow:
+Exploring Singapore's public housing resale market to understabd long-term price trends, high-value are, and transaction patterns by flat model. It also serves as end to end practice workflow:
 
 **CSV dataset → Dockerized Postgres → SQL ingestion → Figma UI → PowerBI dashboard insights.**
 
 # Background 
-The purpose behind this project was driven to strengthen my SQL fundamentals, database skills, Figma UI design and PowerBI, while also exploring about data engineering and gaining a deeper understanding of Singare public housing resale market. 
+Building this project was driven to strengthen my SQL fundamentals, database skills, Figma UI design and PowerBI, while also exploring about data engineering and gaining a deeper understanding of Singapore public housing resale market. 
 
-The data for this project is from Singapore Government public portal [HDB Resale Price](https://data.gov.sg/collections/189/view)
+Data Source: Singapore Government Data Portal - [HDB Resale Price](https://data.gov.sg/collections/189/view)
 
 Questions behind the data analysis through my project were:
 1. Price trend (1990-2025):
@@ -20,7 +20,7 @@ Which towns having the highest and lowest average resale price consistently, and
 3. Transaction mix by flat model: 
 Which flat models make up most of the transactions, and does a shift in flat model mix relate to changes in the overall median resale price or YoY median %?
 
-# Tools I Used
+## Tools I Used
 - **Docker:** Containerized PostgreSQL + pgadmin
 - **PostgreSQL:** Data storage + SQL queries 
 - **pgAdmin:** DB management + query execution 
@@ -28,13 +28,13 @@ Which flat models make up most of the transactions, and does a shift in flat mod
 - **Figma:** UI/UX refinement for dashboard layout
 - **VSCode:** version control and README maintenance 
 
-# Process
+## Process
 ### 1. Create Docker + PostgresSQL
 Running a local PostgreSQL database using Docker, together with pgAdmin so that when the container is up, I will be able to do SQL ingestion of the CSV into Postgres 
 
-**1. Docker Configuration**
+**1.1 Docker Configuration**
 
-From the project roots, run:
+From the project root, run:
 
 ![alt text](images/docker.png)
 
@@ -48,7 +48,7 @@ From the project roots, run:
 
 <p align="center"><em>Fig 1.2 Docker Version</em></p>
 
-**2. Postgres Database**
+**1.2 Postgres Database**
 
 Connecting docker container to pgAdmin on local desktop. 
 ![alt text](images/pgdb1.png)
@@ -64,7 +64,7 @@ Checking the version that Postgres DB is connected to the container properly.
 ### 2. SQL Data Ingestion
 After PostgreSQL is runnning in Docker, I load the datasets from my directory into Postgres using SQL. 
 
-**1. Create Table**
+**2.1 Create Table**
 
 ```sql
 create table hdb_resale_prices(
@@ -82,7 +82,7 @@ create table hdb_resale_prices(
 ); 
 ```
 
-**2. Ingest dataset**
+**2.2 Ingest dataset**
 
 ```sql
 copy public.hdb_resale_prices
@@ -97,7 +97,7 @@ with
 	(format csv, header true);
 ```
 
-**3. Add ID for the table**
+**2.3 Add ID for the table**
 
 ```sql
 alter table public.hdb_resale_prices
@@ -107,7 +107,7 @@ alter table public.hdb_resale_prices
 add constraint hdb_resale_prices_pkey primary key (hdb_id);
 ```
 
-**4. Check for duplication**
+**2.4 Check for duplication**
 
 ```sql
 select
@@ -144,7 +144,7 @@ order by
 limit 50;
 ```
 
-**5. Delete Duplication**
+**2.5 Delete Duplication**
 
 ```sql
 with ranked as(
@@ -171,7 +171,7 @@ where
 	);
 ```
 
-**6. Check for existing duplicate group**
+**2.6 Check for existing duplicate group**
 
 ```sql
 select
@@ -208,7 +208,7 @@ from (
 );
 ```
 
-**7. Create index to prevent duplication**
+**2.7 Create index to prevent duplication**
 
 ```sql
 create unique index if not exists uq_hdb_no_duplicates
@@ -227,7 +227,7 @@ on public.hdb_resale_prices(
 );
 ```
 
-**8. Confirming index**
+**2.8 Confirming index**
 
 ```sql
 select 
@@ -241,7 +241,7 @@ where
 	and indexname = 'uq_hdb_no_duplicates';
 ```
 
-# Analysis 
+## Analysis 
 After cleaning the data in power query and creating several dax measures, here is the following analysis:
 
 ### 1. HDB Resale Median Price Trend (1990-2025) - with 12 Month Moving Average
@@ -288,7 +288,7 @@ The remaining transaction spreading across smaller categories such as:
 
 Overall, the market is dominated by a few of common flat models with some of less frequent types. 
 
-# Conclusion 
+## Conclusion 
 ![alt text](images/pb59.png)
 
 <p align="center"><i>Fig 4 HDB Resale Price Dashboard</i></p>
@@ -299,7 +299,7 @@ Transaction activity is concentrated in few common flat models that suggesting t
 
 The dashboard UI was refined in Figma creating cleaner and modern layout before rebuilding in PowerBI. I have followed Swiss design principles by using consistent grid system, clear alignment, and generous white space to improve readability. Using restrained color palette to keep attention on data rather than decorative elements. 
 
-# Reference
+## Reference
 “Compose file reference.” (2025, July 9). Docker Documentation. https://docs.docker.com/reference/compose-file/
 
 “Docker compose.” (2026, January 6). Docker Documentation. https://docs.docker.com/compose/
