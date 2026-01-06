@@ -244,7 +244,7 @@ After cleaning the data in power query and creating several dax measures, here i
 
 ![alt text](images/linechart.png)
 
-*Fig 3. Chart for HDB Median Price*
+<p align="center"><i>Fig 3 Chart for HDB Median Price</i></p>
 
 The median resale prices showing clear long-term uptrend from 1990 to 2025: 
 - Growth have accelerated from the early 1990s into late 1990s 
@@ -258,7 +258,7 @@ The 12-month moving average smooths short-term fluctuations highlighting the ove
 ### 2. Average HDB Resale Price by Town - Highest to Lowest
 ![alt text](images/barchart.png)
 
-*Fig 3.1 Chart for HDB Price by Town*
+<p align="center"><i>Fig 3.1 Chart for HDB Price by Town</i></p>
 
 - Punggol leading at around $0.49M, following by Sengkang ($0.45M) and Bukit Timah ($0.42M)
 - Bishan and Pasir Ris is around $0.40M 
@@ -269,7 +269,8 @@ Overall, this is highlighting clear location-driven pricing differences in the r
 ### 3. Flat Model Transaction - Share of Total Resale Transactions
 ![alt text](images/treemap.png)
 
-*Fig 3.2 Share of Flat Model*
+<p align="center"><i>Fig 3.2 Share of Flat Model</i></p>
+
 
 The resale transaction are concentrated into few flat models:
 - Model A having the largest share at 38%
