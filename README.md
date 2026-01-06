@@ -49,10 +49,12 @@ From the project roots, run:
 
 Connecting docker container to pgAdmin on local desktop. 
 ![alt text](pgdb1.png)
+
 *Fig 2. pgAdmin Connection Interface* 
 
 Checking the version that Postgres DB is connected to the container properly. 
 ![alt text](postgres15.png)
+
 *Fig 2.1. Database Version* 
 
 ### 2. SQL Data Ingestion
@@ -241,19 +243,21 @@ After cleaning the data in power query and creating several dax measures, here i
 ### 1. HDB Resale Median Price Trend (1990-2025) - with 12 Month Moving Average
 
 ![alt text](linechart.png)
+
 *Fig 3. Chart for HDB Median Price*
 
 The median resale prices showing clear long-term uptrend from 1990 to 2025: 
 - Growth have accelerated from the early 1990s into late 1990s 
 - Growth staying flat through the early-mid 2000s 
 - Rises strongly from 2008 to 2013 
-- Mild dip around 2014-2019
+- Minor dip around 2014-2019
 - Prices rises again from 2020 onwards which reach new highs by 2025. 
 
 The 12-month moving average smooths short-term fluctuations highlighting the overall upwards trajectory. 
 
 ### 2. Average HDB Resale Price by Town - Highest to Lowest
 ![alt text](barchart.png)
+
 *Fig 3.1 Chart for HDB Price by Town*
 
 - Punggol leading at around $0.49M, following by Sengkang ($0.45M) and Bukit Timah ($0.42M)
@@ -264,6 +268,7 @@ Overall, this is highlighting clear location-driven pricing differences in the r
 
 ### 3. Flat Model Transaction - Share of Total Resale Transactions
 ![alt text](treemap.png)
+
 *Fig 3.2 Share of Flat Model*
 
 The resale transaction are concentrated into few flat models:
@@ -278,3 +283,24 @@ The remaining transaction spreading across smaller categories such as:
 
 Overall, the market is dominated by a few of common flat models with some of less frequent types. 
 
+# Conclusion 
+![alt text](pb59.png)
+
+*Fig 4 HDB Resale Price Dashboard*
+
+The dashboard showing that Singapore's HDB resale price have trended upward over the long term with a period of softening before rising again to new highs in recent years. Resale prices also differ by town with some locations consistently having higher average than others.
+
+Transaction activity is concentrated in few common flat models that suggesting the market demand is driven by standard housing types rather than niche configurations. 
+
+The dashboard UI was refined in Figma creating cleaner and modern layout before rebuilding in PowerBI. I have followed Swiss design principles by using consistent grid system, clear alignment, and generous white space to improve readability. Using restrained color palette to keep attention on data rather than decorative elements. 
+
+# Reference
+“Compose file reference.” (2025, July 9). Docker Documentation. https://docs.docker.com/reference/compose-file/
+
+“Docker compose.” (2026, January 6). Docker Documentation. https://docs.docker.com/compose/
+
+“Docker Desktop.” (2025, November 13). Docker Documentation. https://docs.docker.com/desktop/
+
+Müller-Brockmann, J. (1981). Grid systems in graphic design: A visual communication manual for graphic designers, typographers and three-dimensional designers.
+
+PostgreSQL: documentation. (n.d.). The PostgreSQL Global Development Group. https://www.postgresql.org/docs/
