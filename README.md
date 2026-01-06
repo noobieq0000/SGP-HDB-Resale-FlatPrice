@@ -293,7 +293,7 @@ Overall, the market is dominated by a few of common flat models with some of les
 
 <p align="center"><i>Fig 4 HDB Resale Price Dashboard</i></p>
 
-The dashboard showing that Singapore's HDB resale price have trended upward over the long term with a period of softening before rising again to new highs in recent years. Resale prices also differ by town with some locations consistently having higher average than others.
+The PowerBI dashboard showing that Singapore's HDB resale price have trended upward over the long term with a period of softening before rising again to new highs in recent years. Resale prices also differ by town with some locations consistently having higher average than others.
 
 Transaction activity is concentrated in few common flat models that suggesting the market demand is driven by standard housing types rather than niche configurations. 
 
