@@ -29,7 +29,7 @@ Which flat models make up most of the transactions, and does a shift in flat mod
 - **VSCode:** version control and README maintenance 
 
 # Process
-## 1. Create Docker + PostgresSQL
+### 1. Create Docker + PostgresSQL
 Running a local PostgreSQL database using Docker, together with pgAdmin so that when the container is up, I will be able to do SQL ingestion of the CSV into Postgres 
 
 **1. Docker Configuration**
@@ -55,7 +55,7 @@ Checking the version that Postgres DB is connected to the container properly.
 ![alt text](postgres15.png)
 *Fig 2.1. Database Version* 
 
-## 2. SQL Data Ingestion
+### 2. SQL Data Ingestion
 After PostgreSQL is runnning in Docker, I load the datasets from my directory into Postgres using SQL. 
 
 **1. Create Table**
@@ -256,7 +256,7 @@ The 12-month moving average smooths short-term fluctuations highlighting the ove
 ![alt text](barchart.png)
 *Fig 3.1 Chart for HDB Price by Town*
 
-- Punggol leading at around $0.49M, following by Sengkang (~$0.45M) and Bukit Timah (~$0.42M)
+- Punggol leading at around $0.49M, following by Sengkang ($0.45M) and Bukit Timah ($0.42M)
 - Bishan and Pasir Ris is around $0.40M 
 - Tampines and Bukit Panjang sits closer to $0.32M
 
@@ -277,3 +277,4 @@ The remaining transaction spreading across smaller categories such as:
 - Other models contributing small percentage around 2-3%
 
 Overall, the market is dominated by a few of common flat models with some of less frequent types. 
+
