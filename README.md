@@ -33,7 +33,10 @@ Which flat models make up most of the transactions, and does a shift in flat mod
 Running a local PostgreSQL database using Docker, together with pgAdmin so that when the container is up, I will be able to do SQL ingestion of the CSV into Postgres 
 
 **1. Docker Configuration**
-From the project roots (C:\Users\bings\sg-resaleflatprice\SGP-HDB-Resale-FlatPrice), run:
+
+From the project roots 
+
+(C:\Users\bings\sg-resaleflatprice\SGP-HDB-Resale-FlatPrice), run:
 
 ![alt text](docker.png)
 *Fig 1. Docker interface*
@@ -47,11 +50,11 @@ From the project roots (C:\Users\bings\sg-resaleflatprice\SGP-HDB-Resale-FlatPri
 **2. Postgres Database**
 Connecting docker container to pgAdmin on local desktop. 
 ![alt text](pgdb1.png)
-*Fig 2. pgAdmin Connection Interface 
+*Fig 2. pgAdmin Connection Interface* 
 
 Checking the version that Postgres DB is connected to the container properly. 
 ![alt text](postgres15.png)
-*Fig 2.1. Database Version 
+*Fig 2.1. Database Version* 
 
 ## 2. SQL Data Ingestion
 
