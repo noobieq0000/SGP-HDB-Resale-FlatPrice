@@ -38,27 +38,27 @@ From the project roots, run:
 
 ![alt text](images/docker.png)
 
-<p align="center"><i>Fig 1 Docker Interface</em></p>
+<p align="center"><em>Fig 1 Docker Interface</em></p>
 
 ![alt text](images/docker1-1.png)
 
-<p align="center"><i>Fig 1.1 Docker CLI Status</em></p>
+<p align="center"><em>Fig 1.1 Docker CLI Status</em></p>
 
 ![alt text](images/docker10.png)
 
-<p align="center"><i>Fig 1.2 Docker Version</em></p>
+<p align="center"><em>Fig 1.2 Docker Version</em></p>
 
 **2. Postgres Database**
 
 Connecting docker container to pgAdmin on local desktop. 
 ![alt text](images/pgdb1.png)
 
-<p align="center"><i>Fig 2 pgAdmin Connection Interface</em></p>
+<p align="center"><em>Fig 2 pgAdmin Connection Interface</em></p>
 
 Checking the version that Postgres DB is connected to the container properly. 
 ![alt text](images/postgres15.png)
 
-<p align="center"><i>Fig 2.1. Database Version</em></p>
+<p align="center"><em>Fig 2.1. Database Version</em></p>
 
 
 ### 2. SQL Data Ingestion
