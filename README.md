@@ -234,3 +234,17 @@ where
 	and tablename = 'hdb_resale_prices'
 	and indexname = 'uq_hdb_no_duplicates';
 ```
+
+# Analysis 
+After cleaning the data in power query and creating several dax measures, here is the following analysis:
+
+### 1. HDB Resale Median Price Trend (1990-2025) - with 12 Month Moving Average
+
+![alt text](linechart.png)
+*Fig 3. Chart for HDB Median Price*
+
+The median resale prices showing clear long-term uptrend from 1990 to 2025 which growth have accelerated from the early 1990s into late 1990s, stay flat through the early-mid 2000s and rises strongly from 2008 to 2013. There is a mild dip around 2014-2019, but prices rises again from 2020 onwards which reach new highs by 2025. 
+
+The 12-month moving average smooths short-term fluctuations highlighting the overall upwards trajectory. 
+
+
