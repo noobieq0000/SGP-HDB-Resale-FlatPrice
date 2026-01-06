@@ -37,23 +37,23 @@ Running a local PostgreSQL database using Docker, together with pgAdmin so that 
 From the project roots, run:
 
 ![alt text](docker.png)
-                        *Fig 1. Docker interface*
+*Fig 1. Docker interface*
 
 ![alt text](docker1-1.png)
-                        *Fig 1.1 Docker CLI status*
+*Fig 1.1 Docker CLI status*
 
 ![alt text](docker10.png)
-                        *Fig 1.2 Docker Version*
+*Fig 1.2 Docker Version*
 
 **2. Postgres Database**
 
 Connecting docker container to pgAdmin on local desktop. 
 ![alt text](pgdb1.png)
-                *Fig 2. pgAdmin Connection Interface* 
+*Fig 2. pgAdmin Connection Interface* 
 
 Checking the version that Postgres DB is connected to the container properly. 
 ![alt text](postgres15.png)
-                    *Fig 2.1. Database Version* 
+*Fig 2.1. Database Version* 
 
 ## 2. SQL Data Ingestion
 After PostgreSQL is runnning in Docker, I load the datasets from my directory into Postgres using SQL. 
@@ -243,8 +243,37 @@ After cleaning the data in power query and creating several dax measures, here i
 ![alt text](linechart.png)
 *Fig 3. Chart for HDB Median Price*
 
-The median resale prices showing clear long-term uptrend from 1990 to 2025 which growth have accelerated from the early 1990s into late 1990s, stay flat through the early-mid 2000s and rises strongly from 2008 to 2013. There is a mild dip around 2014-2019, but prices rises again from 2020 onwards which reach new highs by 2025. 
+The median resale prices showing clear long-term uptrend from 1990 to 2025: 
+- Growth have accelerated from the early 1990s into late 1990s 
+- Growth staying flat through the early-mid 2000s 
+- Rises strongly from 2008 to 2013 
+- Mild dip around 2014-2019
+- Prices rises again from 2020 onwards which reach new highs by 2025. 
 
 The 12-month moving average smooths short-term fluctuations highlighting the overall upwards trajectory. 
 
+### 2. Average HDB Resale Price by Town - Highest to Lowest
+![alt text](barchart.png)
+*Fig 3.1 Chart for HDB Price by Town*
 
+- Punggol leading at around $0.49M, following by Sengkang (~$0.45M) and Bukit Timah (~$0.42M)
+- Bishan and Pasir Ris is around $0.40M 
+- Tampines and Bukit Panjang sits closer to $0.32M
+
+Overall, this is highlighting clear location-driven pricing differences in the resale market. 
+
+### 3. Flat Model Transaction - Share of Total Resale Transactions
+![alt text](treemap.png)
+*Fig 3.2 Share of Flat Model*
+
+The resale transaction are concentrated into few flat models:
+- Model A having the largest share at 38%
+- Improved model at 26%
+- New Generation at 10%
+
+The remaining transaction spreading across smaller categories such as:
+- Premium Apartment around 9%
+- Simplified around 4%
+- Other models contributing small percentage around 2-3%
+
+Overall, the market is dominated by a few of common flat models with some of less frequent types. 
