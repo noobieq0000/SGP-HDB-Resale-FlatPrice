@@ -37,25 +37,28 @@ Running a local PostgreSQL database using Docker, together with pgAdmin so that 
 From the project roots, run:
 
 ![alt text](images/docker.png)
-*Fig 1. Docker interface*
+
+<p align="center"><i>Fig 1 Docker Interface</i></p>
 
 ![alt text](images/docker1-1.png)
-*Fig 1.1 Docker CLI status*
+
+<p align="center"><i>Fig 1.1 Docker CLI Status</i></p>
 
 ![alt text](images/docker10.png)
-*Fig 1.2 Docker Version*
+
+<p align="center"><i>Fig 1.2 Docker Version</i></p>
 
 **2. Postgres Database**
 
 Connecting docker container to pgAdmin on local desktop. 
 ![alt text](images/pgdb1.png)
 
-*Fig 2. pgAdmin Connection Interface* 
+<p align="center"><i>Fig 2 pgAdmin Connection Interface</i></p>
 
 Checking the version that Postgres DB is connected to the container properly. 
 ![alt text](images/postgres15.png)
 
-*Fig 2.1. Database Version* 
+<p align="center"><i>Fig 2.1. Database Version</i></p>
 
 ### 2. SQL Data Ingestion
 After PostgreSQL is runnning in Docker, I load the datasets from my directory into Postgres using SQL. 
@@ -287,7 +290,7 @@ Overall, the market is dominated by a few of common flat models with some of les
 # Conclusion 
 ![alt text](images/pb59.png)
 
-*Fig 4 HDB Resale Price Dashboard*
+<p align="center"><i>Fig 4 HDB Resale Price Dashboard</i></p>
 
 The dashboard showing that Singapore's HDB resale price have trended upward over the long term with a period of softening before rising again to new highs in recent years. Resale prices also differ by town with some locations consistently having higher average than others.
 
